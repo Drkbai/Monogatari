@@ -1,10 +1,10 @@
 /**
  * ===========================
- * Save Slot Component
+ * Chapter Select Component
  * ===========================
  */
 
-save-slot {
+chapter-select {
 	width: 20rem;
 	height: auto;
 	background-color: var(--main-color);
@@ -29,22 +29,6 @@ save-slot {
 		color: inherit;
 		font-style: italic;
 		font-weight: bold;
-	}
-
-	[data-delete] {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		top: -1rem;
-		border-radius: 100%;
-		width: 2rem;
-		height: 2rem;
-		position: absolute;
-		right: -1rem;
-		margin: 0;
-		font-size: 1rem;
-		background-color: var(--main-color);
-		color: #f7f7f7;
 	}
 
 	img {
