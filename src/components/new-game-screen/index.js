@@ -1,10 +1,8 @@
 import { ScreenComponent } from './../../lib/ScreenComponent';
 
-class LoadScreen extends ScreenComponent {
+class NewGameScreen extends ScreenComponent {
 
 	render () {
-		const autoSaveEnabled = this.engine.setting ('AutoSave') != 0 && typeof this.engine.setting ('AutoSave') === 'number';
-
 		return `
 			<button class="top left" data-action="back"><span class="fas fa-arrow-left"></span></button>
 			<h2 data-string="Load">Load</h2>
@@ -24,7 +22,7 @@ class LoadScreen extends ScreenComponent {
 	}
 }
 
-LoadScreen.tag = 'load-screen';
+NewGameScreen.tag = 'new-game-screen';
 
 
-export default LoadScreen;
+export default NewGameScreen;
