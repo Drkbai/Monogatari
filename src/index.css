@@ -28,6 +28,7 @@
  */
 @import './components/alert-modal/index.css';
 @import './components/canvas-container/index.css';
+@import './components/chapter-select/index.css';
 @import './components/character-sprite/index.css';
 @import './components/choice-container/index.css';
 @import './components/centered-dialog/index.css';
@@ -41,6 +42,7 @@
 @import './components/main-menu/index.css';
 @import './components/main-screen/index.css';
 @import './components/message-modal/index.css';
+@import './components/new-game-screen/index.css';
 @import './components/quick-menu/index.css';
 @import './components/save-screen/index.css';
 @import './components/save-slot/index.css';
