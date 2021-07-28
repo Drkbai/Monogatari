@@ -2,59 +2,13 @@ import { Component } from './../../lib/Component';
 import { Text } from '@aegis-framework/artemis';
 import moment from 'moment/min/moment-with-locales';
 
-class SaveSlot extends Component {
+class ChapterSelect extends Component {
 
 	static shouldRollback () {
 		return Promise.resolve ();
 	}
 
 	static willRollback () {
-		return Promise.resolve ();
-	}
-
-	static bind (selector) {
-
-		this.engine.registerListener ('delete-slot', {
-			callback: () => {
-				const target = this.engine.global ('delete_slot');
-
-				// Delete the slot from the storage
-				this.engine.Storage.remove (target);
-
-				// Reset the temporal delete slot variable
-				this.engine.global ('delete_slot', null);
-				this.engine.dismissAlert ('slot-deletion');
-
-				this.engine.instances ().remove ();
-			}
-		});
-
-		const engine = this.engine;
-
-		this.engine.on ('click', '[data-component="slot-container"] [data-delete]', function (event) {
-			engine.debug.debug ('Registered Click on Slot Delete Button');
-			event.stopImmediatePropagation ();
-			event.stopPropagation ();
-			event.preventDefault ();
-
-			engine.global ('delete_slot', this.dataset.delete);
-			engine.Storage.get (engine.global ('delete_slot')).then ((data) => {
-				engine.alert ('slot-deletion', {
-					message: 'SlotDeletion',
-					context: typeof data.name !== 'undefined' ? data.name : data.date,
-					actions: [
-						{
-							label: 'Delete',
-							listener: 'delete-slot'
-						},
-						{
-							label: 'Cancel',
-							listener: 'dismiss-alert'
-						}
-					]
-				});
-			});
-		});
 		return Promise.resolve ();
 	}
 
@@ -80,15 +34,7 @@ class SaveSlot extends Component {
 			if (typeof data.Engine !== 'undefined') {
 				data.name = data.Name;
 				data.date = data.Date;
-				// @Compatibility [<= v1.4.1]
-				// In older versions the date was saved using the JavaScript native Date
-				// object which is not great and moment can actually have trouble parsing
-				// these old dates, specially because we used the locale date wich we have
-				// no way of identifying. Therefore, we'll try to parse the date and if
-				// it doesn't work as-is, we'll try swaping the month and day positions
-				// which may be a common difference on the locales.
 				try {
-					// Check if the date was saved in the old format (dd/mm/yy, hh:mm:ss)
 					if (data.date.indexOf ('/') > -1) {
 						const [date, time] = data.date.replace (',', '').split (' ');
 						const [month, day, year] = date.split ('/');
@@ -121,9 +67,6 @@ class SaveSlot extends Component {
 		if (hasImage) {
 			background = `url(${this.engine.setting ('AssetsPath').root}/${this.engine.setting ('AssetsPath').scenes}/${this.engine.asset ('scenes', this.props.image)})`;
 		} else if ('game' in this.data) {
-			// @Compatibility [<= v1.4.1]
-			// That last if checking for the existance of game in the data is
-			// required because older versions do not have that property.
 			if (this.data.game.state.scene) {
 				background = this.data.game.state.scene;
 
@@ -144,7 +87,6 @@ class SaveSlot extends Component {
 			}
 		}
 		return `
-			<button data-delete='${this.props.slot}' aria-label="${this.engine.string ('Delete')} Slot ${this.props.name}"><span class='fas fa-times'></span></button>
 			<small class='badge'>${this.props.name}</small>
 			<div data-content="background" style="${hasImage ? 'background-image' : 'background'}: ${background}"></div>
 			<figcaption>${moment (this.props.date).format ('LL LTS')}</figcaption>
@@ -152,7 +94,7 @@ class SaveSlot extends Component {
 	}
 }
 
-SaveSlot.tag = 'save-slot';
+ChapterSelect.tag = 'chapter-select';
 
 
-export default SaveSlot;
+export default ChapterSelect;
