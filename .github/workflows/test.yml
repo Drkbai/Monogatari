@@ -35,7 +35,8 @@ jobs:
           build: yarn run build:core
         env:
           # pass the Dashboard record key as an environment variable
-          CYPRESS_RECORD_KEY: key 037ab365-6694-4915-baa6-622d2e6381fd 
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # key 037ab365-6694-4915-baa6-622d2e6381fd 
           # %{{ secrets.CYPRESS_RECORD_KEY }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
