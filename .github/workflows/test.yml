@@ -30,12 +30,12 @@ jobs:
       - name: Run Tests
         uses: cypress-io/github-action@v2
         with:
-          record: true
+          record: false
           browser: firefox
           build: yarn run build:core
         env:
           # pass the Dashboard record key as an environment variable
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_RECORD_KEY: 037ab365-6694-4915-baa6-622d2e6381fd 
           # key 037ab365-6694-4915-baa6-622d2e6381fd 
           # %{{ secrets.CYPRESS_RECORD_KEY }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
