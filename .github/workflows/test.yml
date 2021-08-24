@@ -30,7 +30,7 @@ jobs:
       - name: Run Tests
         uses: cypress-io/github-action@v2
         with:
-          record: true
+          record: false
           browser: firefox
           build: yarn run build:core
         env:
