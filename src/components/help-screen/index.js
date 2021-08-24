@@ -153,6 +153,22 @@ class HelpScreen extends ScreenComponent {
 							<span data-string="QuitButton">Quit Game</span>
 						</div>
 					</div>
+					<div class="row__column--12 row">
+						<div class="row__column--2" data-content="symbols">
+							<span data-content="shortcut">⇧ Q</span>
+						</div>
+						<div class="row__column--10" data-content="instruction">
+							<span data-string="QuitButton">Quit Game</span>
+						</div>
+					</div>
+					<div class="row__column--12 row">
+						<div class="row__column--2" data-content="symbols">
+							<span data-content="shortcut">D</span>
+						</div>
+						<div class="row__column--10" data-content="instruction">
+							<span data-string="OpenDialog">Show the dialog log</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		`;
