@@ -149,6 +149,7 @@ Monogatari._languageMetadata = {
 import AlertModal from './components/alert-modal';
 import CanvasContainer from './components/canvas-container';
 import CenteredDialog from './components/centered-dialog';
+import ChapterSelect from './components/chapter-select';
 import CharacterSprite from './components/character-sprite';
 import ChoiceContainer from './components/choice-container';
 import CreditsScreen from './components/credits-screen';
@@ -162,6 +163,7 @@ import LoadingScreen from './components/loading-screen';
 import MainMenu from './components/main-menu';
 import MainScreen from './components/main-screen';
 import MessageModal from './components/message-modal';
+import NewGameScreen from './components/new-game-screen';
 import QuickMenu from './components/quick-menu';
 import SaveScreen from './components/save-screen';
 import SaveSlot from './components/save-slot';
@@ -176,6 +178,7 @@ Monogatari._components = [
 	AlertModal,
 	CanvasContainer,
 	CenteredDialog,
+	ChapterSelect,
 	CharacterSprite,
 	ChoiceContainer,
 	CreditsScreen,
@@ -189,6 +192,7 @@ Monogatari._components = [
 	MainMenu,
 	MainScreen,
 	MessageModal,
+	NewGameScreen,
 	QuickMenu,
 	SaveScreen,
 	SaveSlot,
